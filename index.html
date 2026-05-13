@@ -1,478 +1,611 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>全球变暖：科学真相与行动指南</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&amp;display=swap');
-        
-        :root {
-            --primary: #00b894;
-            --dark: #1e272e;
-            --light: #f1f2f6;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Noto Sans SC', sans-serif;
-            line-height: 1.7;
-            color: #333;
-            background: linear-gradient(180deg, #0a0e17 0%, #1e272e 100%);
-            min-height: 100vh;
-        }
-        
-        header {
-            background: linear-gradient(rgba(0, 184, 148, 0.9), rgba(0, 184, 148, 0.95)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 300%22%3E%3Cpath fill=%22%23fff%22 fill-opacity=%220.1%22 d=%22M0,150 Q300,50 600,150 Q900,250 1200,150 L1200,300 L0,300 Z%22/%3E%3C/svg%27') center/cover;
-            color: white;
-            text-align: center;
-            padding: 100px 20px 80px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        header::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            right: 0;
-            height: 80px;
-            background: linear-gradient(transparent, #f1f2f6);
-        }
-        
-        h1 {
-            font-size: 3.2rem;
-            margin-bottom: 20px;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        
-        .subtitle {
-            font-size: 1.4rem;
-            opacity: 0.95;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background: #f1f2f6;
-            border-radius: 20px;
-            margin-top: -60px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            position: relative;
-            z-index: 2;
-        }
-        
-        section {
-            margin-bottom: 80px;
-        }
-        
-        h2 {
-            font-size: 2.2rem;
-            color: var(--dark);
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 4px solid var(--primary);
-            display: inline-block;
-        }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-8px);
-        }
-        
-        .card h3 {
-            color: var(--primary);
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-        
-        ul {
-            padding-left: 25px;
-        }
-        
-        li {
-            margin-bottom: 12px;
-            font-size: 1.1rem;
-        }
-        
-        .fact-box {
-            background: linear-gradient(135deg, #00b894, #00a085);
-            color: white;
-            padding: 30px;
-            border-radius: 16px;
-            text-align: center;
-            margin: 40px 0;
-            box-shadow: 0 15px 30px rgba(0,184,148,0.3);
-        }
-        
-        .fact-box h3 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 30px 0;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        th, td {
-            padding: 18px 20px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-        
-        th {
-            background: var(--primary);
-            color: white;
-            font-weight: 700;
-        }
-        
-        tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .chart-container {
-            background: white;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            margin: 30px 0;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 60px 20px 40px;
-            color: #777;
-            font-size: 1.1rem;
-            background: #1e272e;
-            color: #ddd;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            margin-top: 30px;
-            box-shadow: 0 8px 20px rgba(0,184,148,0.4);
-            transition: all 0.3s;
-        }
-        
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 30px rgba(0,184,148,0.5);
-        }
-        
-        .temperature {
-            font-size: 4rem;
-            font-weight: 700;
-            color: #ff6b6b;
-            line-height: 1;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>守护地球 · 保护环境</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+      background: #06151f;
+      color: #ffffff;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    .page {
+      min-height: 100vh;
+      position: relative;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(78, 210, 255, 0.18), transparent 35%),
+        linear-gradient(180deg, #06151f 0%, #0d2a32 48%, #163d2b 100%);
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sun {
+      position: absolute;
+      top: 8%;
+      right: 9%;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff3a3 0%, #ffc857 45%, rgba(255, 200, 87, 0.05) 72%);
+      box-shadow: 0 0 70px rgba(255, 215, 100, 0.65);
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    .cloud {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      filter: blur(1px);
+      animation: float 12s ease-in-out infinite;
+    }
+
+    .cloud::before,
+    .cloud::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    .cloud.one {
+      width: 180px;
+      height: 48px;
+      left: 8%;
+      top: 16%;
+    }
+
+    .cloud.one::before {
+      width: 70px;
+      height: 70px;
+      left: 24px;
+      top: -35px;
+    }
+
+    .cloud.one::after {
+      width: 95px;
+      height: 95px;
+      right: 18px;
+      top: -54px;
+    }
+
+    .cloud.two {
+      width: 140px;
+      height: 38px;
+      right: 20%;
+      top: 32%;
+      animation-delay: -5s;
+      opacity: 0.6;
+    }
+
+    .cloud.two::before {
+      width: 58px;
+      height: 58px;
+      left: 18px;
+      top: -28px;
+    }
+
+    .cloud.two::after {
+      width: 74px;
+      height: 74px;
+      right: 14px;
+      top: -40px;
+    }
+
+    .content {
+      width: min(1120px, 100%);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 56px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .text-block {
+      animation: fadeUp 1s ease both;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 16px;
+      border: 1px solid rgba(129, 255, 183, 0.45);
+      border-radius: 999px;
+      color: #9bffc8;
+      background: rgba(129, 255, 183, 0.08);
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 86px);
+      line-height: 1.08;
+      margin-bottom: 24px;
+      font-weight: 900;
+    }
+
+    h1 span {
+      color: #8dffb1;
+      text-shadow: 0 0 24px rgba(141, 255, 177, 0.35);
+    }
+
+    .subtitle {
+      font-size: clamp(18px, 2vw, 24px);
+      color: rgba(255, 255, 255, 0.82);
+      max-width: 620px;
+      margin-bottom: 34px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      min-width: 160px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.3s ease;
+    }
+
+    .btn.primary {
+      color: #042216;
+      background: linear-gradient(135deg, #8dffb1, #43e0ff);
+      box-shadow: 0 12px 32px rgba(67, 224, 255, 0.25);
+    }
+
+    .btn.secondary {
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+    }
+
+    .earth-wrap {
+      position: relative;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 1.3s ease both;
+    }
+
+    .earth {
+      width: min(420px, 82vw);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      position: relative;
+      background:
+        radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.45), transparent 14%),
+        radial-gradient(circle at 50% 50%, #2aa6ff 0%, #0f72c9 48%, #063f83 100%);
+      box-shadow:
+        inset -45px -55px 75px rgba(0, 0, 0, 0.32),
+        inset 35px 30px 70px rgba(255, 255, 255, 0.16),
+        0 0 80px rgba(61, 207, 255, 0.35);
+      overflow: hidden;
+      animation: rotateGlow 8s ease-in-out infinite;
+    }
+
+    .continent {
+      position: absolute;
+      background: linear-gradient(135deg, #49d169, #187a3c);
+      border-radius: 48% 52% 42% 58%;
+      filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.12));
+    }
+
+    .c1 {
+      width: 150px;
+      height: 105px;
+      top: 88px;
+      left: 75px;
+      transform: rotate(-18deg);
+    }
+
+    .c2 {
+      width: 112px;
+      height: 160px;
+      top: 190px;
+      left: 190px;
+      transform: rotate(24deg);
+      border-radius: 60% 40% 55% 45%;
+    }
+
+    .c3 {
+      width: 95px;
+      height: 70px;
+      top: 110px;
+      right: 52px;
+      transform: rotate(18deg);
+    }
+
+    .c4 {
+      width: 74px;
+      height: 56px;
+      bottom: 86px;
+      left: 88px;
+      transform: rotate(31deg);
+      opacity: 0.9;
+    }
+
+    .heat-ring {
+      position: absolute;
+      width: min(500px, 92vw);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 103, 68, 0.55);
+      box-shadow: 0 0 32px rgba(255, 103, 68, 0.45);
+      animation: heat 2.8s ease-in-out infinite;
+    }
+
+    .leaf {
+      position: absolute;
+      width: 84px;
+      height: 42px;
+      background: linear-gradient(135deg, #a6ff7d, #2ed36f);
+      border-radius: 100% 0 100% 0;
+      transform-origin: bottom right;
+      box-shadow: 0 0 18px rgba(126, 255, 132, 0.42);
+    }
+
+    .leaf::after {
+      content: "";
+      position: absolute;
+      left: 12px;
+      top: 21px;
+      width: 58px;
+      height: 2px;
+      background: rgba(6, 69, 33, 0.35);
+      transform: rotate(-22deg);
+    }
+
+    .leaf.l1 {
+      left: 6%;
+      bottom: 15%;
+      transform: rotate(-28deg);
+    }
+
+    .leaf.l2 {
+      right: 7%;
+      bottom: 20%;
+      transform: rotate(42deg) scale(0.85);
+    }
+
+    .wave {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 170px;
+      background:
+        linear-gradient(180deg, transparent 0%, rgba(8, 73, 55, 0.4) 40%, #0b4a34 100%);
+      clip-path: polygon(0 38%, 12% 31%, 28% 45%, 42% 33%, 58% 47%, 74% 28%, 88% 41%, 100% 30%, 100% 100%, 0 100%);
+    }
+
+    .section {
+      padding: 90px 24px;
+      background: #0b4a34;
+    }
+
+    .section-inner {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(30px, 4vw, 48px);
+      margin-bottom: 18px;
+    }
+
+    .section-desc {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.76);
+      max-width: 760px;
+      margin: 0 auto 48px;
+      font-size: 18px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      padding: 30px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.16);
+      transition: 0.3s ease;
+      min-height: 230px;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.13);
+    }
+
+    .icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      background: rgba(141, 255, 177, 0.16);
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+      color: #b8ffd0;
+    }
+
+    .card p {
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    .pledge {
+      padding: 90px 24px 110px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(141, 255, 177, 0.15), transparent 30%),
+        #07291f;
+      text-align: center;
+    }
+
+    .pledge-box {
+      width: min(900px, 100%);
+      margin: 0 auto;
+      padding: 56px 30px;
+      border-radius: 36px;
+      border: 1px solid rgba(141, 255, 177, 0.25);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.22);
+    }
+
+    .pledge h2 {
+      font-size: clamp(32px, 5vw, 56px);
+      margin-bottom: 18px;
+    }
+
+    .pledge p {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 19px;
+      max-width: 720px;
+      margin: 0 auto 32px;
+    }
+
+    .slogan {
+      display: inline-block;
+      padding: 18px 28px;
+      border-radius: 20px;
+      color: #052617;
+      background: linear-gradient(135deg, #8dffb1, #43e0ff);
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 900;
+      box-shadow: 0 20px 45px rgba(67, 224, 255, 0.2);
+    }
+
+    footer {
+      padding: 24px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6);
+      background: #061b16;
+      font-size: 14px;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.94);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.9;
+      }
+      50% {
+        transform: scale(1.08);
+        opacity: 1;
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateX(0) translateY(0);
+      }
+      50% {
+        transform: translateX(24px) translateY(-12px);
+      }
+    }
+
+    @keyframes heat {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.7;
+      }
+      50% {
+        transform: scale(1.08);
+        opacity: 0.25;
+      }
+    }
+
+    @keyframes rotateGlow {
+      0%, 100% {
+        transform: rotate(-2deg);
+      }
+      50% {
+        transform: rotate(2deg);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+      }
+
+      .subtitle {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .actions {
+        justify-content: center;
+      }
+
+      .earth-wrap {
+        min-height: 420px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .sun {
+        width: 95px;
+        height: 95px;
+        top: 5%;
+        right: 5%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>🌍 全球变暖</h1>
-        <p class="subtitle">地球正在以人类历史上最快的速度升温<br>我们还有时间，但行动必须立即开始</p>
-        
-        <div style="margin-top: 50px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
-            <div style="text-align: center;">
-                <div class="temperature">+1.2°C</div>
-                <p style="font-size:1.2rem; opacity:0.9;">工业革命以来全球平均升温</p>
-            </div>
-            <div style="text-align: center;">
-                <div class="temperature">+0.2°C</div>
-                <p style="font-size:1.2rem; opacity:0.9;">过去10年平均升温速度</p>
-            </div>
-            <div style="text-align: center;">
-                <div class="temperature">2030</div>
-                <p style="font-size:1.2rem; opacity:0.9;">我们必须将升温控制在1.5°C以内</p>
-            </div>
+  <main class="page">
+    <section class="hero">
+      <div class="sun"></div>
+      <div class="cloud one"></div>
+      <div class="cloud two"></div>
+      <div class="leaf l1"></div>
+      <div class="leaf l2"></div>
+
+      <div class="content">
+        <div class="text-block">
+          <div class="tag">GLOBAL WARMING ALERT</div>
+          <h1>地球正在升温，<br><span>行动必须现在开始。</span></h1>
+          <p class="subtitle">
+            冰川消融、海平面上升、极端天气频发。保护环境不是一句口号，
+            而是每一个人今天就可以做出的选择。
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="#action">立即行动</a>
+            <a class="btn secondary" href="#protect">了解方法</a>
+          </div>
         </div>
-    </header>
 
-    <div class="container">
-        
-        <!-- 什么是全球变暖 -->
-        <section>
-            <h2>什么是全球变暖？</h2>
-            <p style="font-size:1.2rem; max-width:800px;">
-                全球变暖是指地球大气和海洋平均温度持续上升的现象，主要由人类活动导致的温室气体浓度增加引起。
-                它不是自然波动，而是过去150年来人类大规模燃烧化石燃料、砍伐森林的结果。
-            </p>
-            
-            <div class="fact-box">
-                <h3>关键科学事实</h3>
-                <p style="font-size:1.4rem; margin:20px 0;">
-                    2024年是人类有记录以来最热的一年<br>
-                    过去9年是史上最热的9年
-                </p>
-                <p>—— 世界气象组织（WMO）最新报告</p>
-            </div>
-        </section>
-
-        <!-- 主要原因 -->
-        <section>
-            <h2>主要原因</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>🔥 燃烧化石燃料</h3>
-                    <p>煤炭、石油、天然气燃烧释放大量二氧化碳（CO₂），占人为温室气体排放的75%以上。</p>
-                    <ul>
-                        <li>电力和供热：占全球排放约40%</li>
-                        <li>交通：占全球排放约14%</li>
-                        <li>工业：占全球排放约20%</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>🌲 森林砍伐</h3>
-                    <p>树木能吸收CO₂，砍伐森林不仅减少碳汇，还释放储存的碳。每年约1200万公顷森林消失。</p>
-                </div>
-                <div class="card">
-                    <h3>🐄 农业与畜牧业</h3>
-                    <p>甲烷（CH₄）来自牛羊反刍和稻田，全球变暖潜力是CO₂的28倍。</p>
-                    <p>氧化亚氮（N₂O）来自化肥使用。</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 严重影响 -->
-        <section>
-            <h2>对地球和人类的严重影响</h2>
-            <table>
-                <tr>
-                    <th>影响领域</th>
-                    <th>当前状况</th>
-                    <th>未来风险（如果不行动）</th>
-                </tr>
-                <tr>
-                    <td><strong>海平面上升</strong></td>
-                    <td>1901-2023年上升约20厘米</td>
-                    <td>本世纪末可能上升0.6-1.1米，淹没沿海城市</td>
-                </tr>
-                <tr>
-                    <td><strong>极端天气</strong></td>
-                    <td>热浪、暴雨、干旱频率增加</td>
-                    <td>每年数亿人面临致命高温</td>
-                </tr>
-                <tr>
-                    <td><strong>生物多样性</strong></td>
-                    <td>珊瑚礁白化，极地冰川融化</td>
-                    <td>1/3的物种面临灭绝风险</td>
-                </tr>
-                <tr>
-                    <td><strong>粮食安全</strong></td>
-                    <td>部分地区作物减产</td>
-                    <td>全球粮食产量可能下降20%以上</td>
-                </tr>
-                <tr>
-                    <td><strong>人类健康</strong></td>
-                    <td>传染病扩散范围扩大</td>
-                    <td>每年数百万气候相关死亡</td>
-                </tr>
-            </table>
-        </section>
-
-        <!-- 数据可视化 -->
-        <section>
-            <h2>温度上升趋势（1880-2024）</h2>
-            <div class="chart-container">
-                <canvas id="tempChart" width="1000" height="400"></canvas>
-            </div>
-            <p style="text-align:center; font-size:1rem; color:#666;">
-                数据来源：NASA / NOAA（图表为HTML5 Canvas动态生成）
-            </p>
-        </section>
-
-        <!-- 我们能做什么 -->
-        <section>
-            <h2>我们每个人都能做的事</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>1. 个人行动</h3>
-                    <ul>
-                        <li>减少开车，多使用公共交通或骑行</li>
-                        <li>节约用电，优先使用可再生能源</li>
-                        <li>减少肉类消费，每周至少一天“无肉日”</li>
-                        <li>拒绝一次性塑料，支持环保产品</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>2. 社会行动</h3>
-                    <ul>
-                        <li>投票支持气候友好政策</li>
-                        <li>参与植树造林和环保组织</li>
-                        <li>向企业施压，要求碳中和</li>
-                        <li>教育身边的人传播科学知识</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>3. 全球解决方案</h3>
-                    <ul>
-                        <li>加速发展太阳能、风能</li>
-                        <li>保护和恢复森林（碳汇）</li>
-                        <li>推广电动汽车和绿色建筑</li>
-                        <li>国际合作（如《巴黎协定》）</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <a href="#" onclick="alert('感谢你的关注！立即行动，从今天开始减少碳足迹！');" class="btn">
-                🚀 我要立即行动
-            </a>
-        </section>
-        
-        <div style="text-align:center; margin:50px 0; padding:30px; background:#fff; border-radius:16px;">
-            <p style="font-size:1.3rem; color:#00b894;">
-                “我们不是地球的继承者，而是向子孙借来的地球的临时保管者。”<br>
-                —— 联合国前秘书长 潘基文
-            </p>
+        <div class="earth-wrap" aria-label="正在被高温包围的地球插画">
+          <div class="heat-ring"></div>
+          <div class="earth">
+            <div class="continent c1"></div>
+            <div class="continent c2"></div>
+            <div class="continent c3"></div>
+            <div class="continent c4"></div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <footer>
-        <p>这是一个纯HTML单文件说明页 • 基于最新科学共识制作</p>
-        <p>数据参考：IPCC第六次评估报告、NASA、NOAA、世界气象组织（2024-2025更新）</p>
-        <p style="margin-top:20px; font-size:0.9rem;">
-            你可以将此页面保存为 <strong>global-warming.html</strong> 文件，在任何浏览器中打开即可离线浏览。<br>
-            欢迎分享给朋友，一起守护我们的蓝色星球！
+      <div class="wave"></div>
+    </section>
+
+    <section class="section" id="protect">
+      <div class="section-inner">
+        <h2 class="section-title">我们可以改变什么？</h2>
+        <p class="section-desc">
+          全球变暖看似遥远，却与我们的每一次出行、消费和能源使用息息相关。
+          保护环境，从微小但持续的行动开始。
         </p>
-    </footer>
 
-    <script>
-        // 简单的温度趋势图表
-        function drawTemperatureChart() {
-            const canvas = document.getElementById('tempChart');
-            const ctx = canvas.getContext('2d');
-            
-            const width = canvas.width;
-            const height = canvas.height;
-            
-            // 背景
-            ctx.fillStyle = '#f8f9fa';
-            ctx.fillRect(0, 0, width, height);
-            
-            // 坐标轴
-            ctx.strokeStyle = '#333';
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-            ctx.moveTo(60, 50);
-            ctx.lineTo(60, height - 50);
-            ctx.lineTo(width - 40, height - 50);
-            ctx.stroke();
-            
-            // 模拟1880-2024温度异常数据（真实趋势）
-            const years = [];
-            const temps = [];
-            for (let i = 1880; i <= 2024; i++) {
-                years.push(i);
-            }
-            
-            // 真实趋势模拟：1880年约-0.4°C，2024年约+1.2°C
-            for (let i = 0; i < years.length; i++) {
-                let base = -0.4;
-                let increase = (years[i] - 1880) * 0.007; // 大致线性趋势
-                // 加上一些波动
-                let random = Math.sin(i / 8) * 0.15 + (Math.random() * 0.1 - 0.05);
-                temps.push(base + increase + random);
-            }
-            
-            // 找到最大最小值
-            const minTemp = Math.min(...temps);
-            const maxTemp = Math.max(...temps);
-            const range = maxTemp - minTemp + 0.5;
-            
-            // 画折线
-            ctx.strokeStyle = '#ff6b6b';
-            ctx.lineWidth = 4;
-            ctx.shadowBlur = 15;
-            ctx.shadowColor = '#ff6b6b';
-            ctx.beginPath();
-            
-            for (let i = 0; i < years.length; i++) {
-                const x = 60 + (i / (years.length - 1)) * (width - 100);
-                const y = 50 + (height - 100) * (1 - (temps[i] - minTemp) / range);
-                if (i === 0) ctx.moveTo(x, y);
-                else ctx.lineTo(x, y);
-            }
-            ctx.stroke();
-            
-            // 数据点（最后20年突出）
-            ctx.fillStyle = '#ff6b6b';
-            for (let i = years.length - 30; i < years.length; i++) {
-                const x = 60 + (i / (years.length - 1)) * (width - 100);
-                const y = 50 + (height - 100) * (1 - (temps[i] - minTemp) / range);
-                ctx.beginPath();
-                ctx.arc(x, y, 3.5, 0, Math.PI * 2);
-                ctx.fill();
-            }
-            
-            // Y轴标签
-            ctx.fillStyle = '#333';
-            ctx.font = 'bold 13px Noto Sans SC';
-            ctx.textAlign = 'right';
-            ctx.fillText('+1.5°C', 50, 55);
-            ctx.fillText('0°C', 50, height/2 + 10);
-            ctx.fillText('-0.5°C', 50, height - 55);
-            
-            // X轴标签
-            ctx.textAlign = 'center';
-            ctx.fillText('1880', 60, height - 25);
-            ctx.fillText('1950', width/2 - 10, height - 25);
-            ctx.fillText('2024', width - 55, height - 25);
-            
-            // 图例
-            ctx.fillStyle = '#ff6b6b';
-            ctx.fillRect(width - 220, 60, 20, 6);
-            ctx.fillStyle = '#333';
-            ctx.font = '500 15px Noto Sans SC';
-            ctx.fillText('全球平均温度异常（℃）', width - 180, 68);
-            
-            // 标题
-            ctx.font = '700 22px Noto Sans SC';
-            ctx.fillStyle = '#1e272e';
-            ctx.textAlign = 'center';
-            ctx.fillText('全球气温异常变化趋势（1880-2024）', width/2, 30);
-        }
-        
-        // 页面加载完成后绘制图表
-        window.onload = function() {
-            drawTemperatureChart();
-            
-            // 添加一些微动画
-            console.log('%c✅ 全球变暖说明页已成功生成！', 'color:#00b894; font-size:16px; font-weight:bold;');
-        };
-    </script>
+        <div class="cards">
+          <article class="card">
+            <div class="icon">🌱</div>
+            <h3>减少碳排放</h3>
+            <p>多乘坐公共交通、骑行或步行，减少不必要的能源浪费，让低碳生活成为习惯。</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">♻️</div>
+            <h3>循环再利用</h3>
+            <p>减少一次性用品，做好垃圾分类，让资源被重新使用，而不是变成污染。</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🌍</div>
+            <h3>守护自然</h3>
+            <p>节约用水用电，保护森林、海洋和野生动物，为下一代留下健康的地球。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pledge" id="action">
+      <div class="pledge-box">
+        <h2>每一个选择，都在影响未来</h2>
+        <p>
+          当更多人开始节约能源、减少浪费、保护绿色生态，
+          地球就会拥有更多恢复的机会。不要等待别人先行动，
+          从今天的一个小改变开始。
+        </p>
+        <div class="slogan">少一点浪费，多一分希望。</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    保护环境 · 应对全球变暖 · 共建可持续未来
+  </footer>
 </body>
 </html>
